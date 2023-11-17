@@ -1,0 +1,14 @@
+#########
+
+ name: Get Request
+ url: http://localhost:8000/
+ method: GET
+body: {
+  "key": "value"
+}
+
+headers: {
+  "Content-Type": "application/json"
+}
+
+#####
