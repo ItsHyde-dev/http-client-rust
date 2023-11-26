@@ -2,7 +2,7 @@ use serde::{Deserialize, Serialize};
 
 use crate::utils::brackets::Brackets;
 
-#[derive(Serialize, Deserialize, Debug)]
+#[derive(Serialize, Deserialize, Debug, Clone)]
 pub struct Request {
     pub name: String,
     pub url: String,
@@ -11,7 +11,7 @@ pub struct Request {
     pub body: Option<String>,
 }
 
-pub fn parse_requests(requests: Vec<String>) {
+pub fn parse_requests(requests: Vec<String>) -> Vec<Request> {
     let mut parsed_requests: Vec<Request> = Vec::new();
 
     for request in requests {
@@ -60,6 +60,8 @@ pub fn parse_requests(requests: Vec<String>) {
 
         parsed_requests.push(current_request);
     }
+
+    return parsed_requests;
 }
 
 fn get_key_value_pairs(data: String) -> (Vec<String>, Vec<String>) {
@@ -119,7 +121,7 @@ fn get_key_value_pairs(data: String) -> (Vec<String>, Vec<String>) {
 }
 
 fn get_value(line: String) -> String {
-    return line.split(":").skip(1).collect::<String>();
+    return line.split(":").skip(1).collect::<Vec<&str>>().join(":");
 }
 
 fn get_key(line: String) -> String {
