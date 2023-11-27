@@ -11,6 +11,8 @@ use crate::utils::{
     tui::{clear_screen, switch_screens, ScreenParams, Screens, exit},
 };
 
+use std::io::Write;
+
 pub fn request_listing_screen(params: ScreenParams) {
     terminal::enable_raw_mode().unwrap();
     let mut stdout = std::io::stdout();
@@ -80,4 +82,9 @@ pub fn display_request_list(
             println!("   {counter}. {}", request.name.trim());
         }
     }
+
+    println!();
+    stdout.execute(cursor::MoveToColumn(0)).unwrap();
+    write!(stdout, ">> Press q to exit \r\n").unwrap();
+    write!(stdout, ">> Press Enter to select request \r\n").unwrap();
 }
