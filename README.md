@@ -1,14 +1,14 @@
-# HTTP REST Client Built Using Rust
+# 🚀 HTTP REST Client Built Using Rust
 
 Welcome to my HTTP REST client project, built with Rust to streamline API testing and development processes. This powerful tool incorporates a full-fledged file parsing system and a user-friendly terminal UI for an intuitive user experience.
 
-## Features
+## ⚙️ Features
 
 - 💻 **Terminal UI**: The terminal UI provides a seamless and user-friendly interface for making and managing HTTP requests.
   
 - 📂 **Custom File Parsing System**: The custom file parsing system allows for efficient handling of data, enhancing the versatility of the client.
 
-## Getting Started
+## 📚 Getting Started
 
 To use the system, follow these steps:
 
@@ -27,14 +27,12 @@ cargo install --path ./
 
 3. **Load Requests**: To load requests into the system, use the following command with the path to your request file.
 ```
-http-client -p
+http-client -p <filepath>
 ```
 ## Stats
 
-[![GitHub stars](https://img.shields.io/github/stars/your-username/http-rest-client-rust?style=social)](https://github.com/your-username/http-rest-client-rust/stargazers)
-[![GitHub forks](https://img.shields.io/github/forks/your-username/http-rest-client-rust?style=social)](https://github.com/your-username/http-rest-client-rust/network/members)
-[![GitHub issues](https://img.shields.io/github/issues/your-username/http-rest-client-rust)](https://github.com/your-username/http-rest-client-rust/issues)
-[![GitHub license](https://img.shields.io/github/license/your-username/http-rest-client-rust)](https://github.com/your-username/http-rest-client-rust/blob/main/LICENSE)
+[![GitHub stars](https://img.shields.io/github/stars/ItsHyde-dev/http-client-rust?style=social)](https://github.com/ItsHyde-dev/http-client-rust/stargazers)
+[![GitHub issues](https://img.shields.io/github/issues/ItsHyde-dev/http-client-rust)](https://github.com/ItsHyde-dev/http-client-rust/issues)
 
 ## Future Scope
 
