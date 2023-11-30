@@ -1,5 +1,8 @@
-[![GitHub stars](https://img.shields.io/github/stars/ItsHyde-dev/http-client-rust?style=social)](https://github.com/ItsHyde-dev/http-client-rust/stargazers)
-[![GitHub issues](https://img.shields.io/github/issues/ItsHyde-dev/http-client-rust)](https://github.com/ItsHyde-dev/http-client-rust/issues)
+<div align="center">
+  
+  ![Rust](https://img.shields.io/badge/Rust-000000?style=for-the-badge&logo=rust&logoColor=white)
+  ![Work In Progress](https://img.shields.io/badge/Work%20In%20Progress-orange?style=for-the-badge)
+</div>
 
 
 # 🚀 HTTP REST Client Built Using Rust
