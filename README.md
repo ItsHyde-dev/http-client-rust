@@ -1,3 +1,7 @@
+[![GitHub stars](https://img.shields.io/github/stars/ItsHyde-dev/http-client-rust?style=social)](https://github.com/ItsHyde-dev/http-client-rust/stargazers)
+[![GitHub issues](https://img.shields.io/github/issues/ItsHyde-dev/http-client-rust)](https://github.com/ItsHyde-dev/http-client-rust/issues)
+
+
 # 🚀 HTTP REST Client Built Using Rust
 
 Welcome to my HTTP REST client project, built with Rust to streamline API testing and development processes. This powerful tool incorporates a full-fledged file parsing system and a user-friendly terminal UI for an intuitive user experience.
@@ -29,10 +33,6 @@ cargo install --path ./
 ```
 http-client -p <filepath>
 ```
-## Stats
-
-[![GitHub stars](https://img.shields.io/github/stars/ItsHyde-dev/http-client-rust?style=social)](https://github.com/ItsHyde-dev/http-client-rust/stargazers)
-[![GitHub issues](https://img.shields.io/github/issues/ItsHyde-dev/http-client-rust)](https://github.com/ItsHyde-dev/http-client-rust/issues)
 
 ## 📋 File Format
 
