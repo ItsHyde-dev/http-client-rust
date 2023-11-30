@@ -34,7 +34,69 @@ http-client -p <filepath>
 [![GitHub stars](https://img.shields.io/github/stars/ItsHyde-dev/http-client-rust?style=social)](https://github.com/ItsHyde-dev/http-client-rust/stargazers)
 [![GitHub issues](https://img.shields.io/github/issues/ItsHyde-dev/http-client-rust)](https://github.com/ItsHyde-dev/http-client-rust/issues)
 
-## Future Scope
+## 📋 File Format
+
+The HTTP REST client project supports a custom file format for specifying requests. This structure allows for easy organization and customization of HTTP requests. Below is an example of the file format:
+
+```plaintext
+########
+{
+  name: Sample GET Request
+  url: https://api.example.com/data
+  method: GET
+}
+
+######
+{
+  name: Sample POST Request
+  url: https://api.example.com/create
+  method: POST
+  headers:
+  {
+    "Content-Type": "application/json"
+  },
+  body:
+  {
+    "key": "value"
+  }
+}
+
+#####
+{
+  name: Sample PUT Request
+  url: https://api.example.com/update
+  method: PUT
+  headers:
+  {
+    "Authorization": "Bearer YOUR_ACCESS_TOKEN"
+  },
+  body:
+  {
+    "updated_key": "updated_value"
+  }
+}
+```
+
+### Note:
+
+- For the `headers` and `body` fields, ensure that the provided JSON is valid, containing key-value pairs.
+- The opening and closing curly brackets for the JSON in both `headers` and `body` should be on a new line for proper formatting.
+- The keys for the format should not be enclosed in "". (This is due to personal taste) 
+
+  Example:
+
+  ```plaintext
+  headers:
+  {
+    "Content-Type": "application/json"
+  },
+  body:
+  {
+    "key": "value"
+  }
+
+
+## 🔮 Future Scope
 
 Moving forward, I plan to enable the system to send multipart form data with file attachments, further enhancing its capabilities for handling various types of requests.
 
