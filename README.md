@@ -9,6 +9,8 @@
 
 Welcome to my HTTP REST client project, built with Rust to streamline API testing and development processes. This powerful tool incorporates a full-fledged file parsing system and a user-friendly terminal UI for an intuitive user experience.
 
+![showcase](./public/usage_example.gif)
+
 ## ⚙️ Features
 
 - 💻 **Terminal UI**: The terminal UI provides a seamless and user-friendly interface for making and managing HTTP requests.
