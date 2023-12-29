@@ -11,6 +11,21 @@ pub struct Request {
     pub body: Option<String>,
 }
 
+#[derive(Debug, Clone)]
+pub struct CurlRequest {
+    pub name: String,
+    pub req: String,
+}
+
+impl CurlRequest {
+    pub fn new() -> Self {
+        Self {
+            name: String::new(),
+            req: String::new(),
+        }
+    }
+}
+
 pub fn parse_requests(requests: Vec<String>) -> Vec<Request> {
     let mut parsed_requests: Vec<Request> = Vec::new();
 
@@ -59,6 +74,49 @@ pub fn parse_requests(requests: Vec<String>) -> Vec<Request> {
         }
 
         parsed_requests.push(current_request);
+    }
+
+    return parsed_requests;
+}
+
+pub fn parse_curl_requests(requests: Vec<String>) -> Vec<CurlRequest> {
+    let mut parsed_requests: Vec<CurlRequest> = Vec::new();
+
+    for request in requests {
+        parsed_requests.push(CurlRequest {
+            name: request
+                .lines()
+                .filter_map(|line| {
+                    if !line.trim().is_empty() {
+                        return Some(line.to_string());
+                    }
+                    return None;
+                })
+                .collect::<Vec<String>>()
+                .first()
+                .unwrap()
+                .trim()[6..]
+                .trim()
+                .to_string(),
+            req: request
+                .lines()
+                .filter_map(|line| {
+                    if !line.trim().is_empty() {
+                        return Some(line.to_string());
+                    }
+                    return None;
+                })
+                .collect::<Vec<String>>()[1..]
+                .iter()
+                .map(|s| {
+                    if s.ends_with("\\") {
+                        return s[0..s.len() - 1].to_string();
+                    }
+                    return s.to_string();
+                })
+                .collect::<Vec<String>>()
+                .join(""),
+        });
     }
 
     return parsed_requests;

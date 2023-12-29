@@ -1,7 +1,10 @@
 use std::io::stdout;
 
 use super::parser;
-use crossterm::{terminal::{self, Clear, ClearType}, ExecutableCommand};
+use crossterm::{
+    terminal::{self, Clear, ClearType},
+    ExecutableCommand,
+};
 use serde_json::Value;
 
 use reqwest::Client;
@@ -50,7 +53,10 @@ pub async fn send_request(request_data: &parser::Request) {
 
             match json {
                 Ok(json) => {
-                    println!("Response Body: {}", serde_json::to_string_pretty(&json).unwrap());
+                    println!(
+                        "Response Body: {}",
+                        serde_json::to_string_pretty(&json).unwrap()
+                    );
                 }
                 Err(_) => {
                     println!(
@@ -74,4 +80,26 @@ pub fn get_method(method_string: &str) -> reqwest::Method {
         "DELETE" => reqwest::Method::DELETE,
         _ => reqwest::Method::GET,
     };
+}
+
+pub async fn send_curl_request(request_string: String) {
+    terminal::disable_raw_mode().unwrap();
+    stdout().execute(Clear(ClearType::All)).unwrap();
+
+    let output = async_process::Command::new("bash")
+        .arg("-c")
+        .arg(format!("{request_string} --no-progress-meter"))
+        .output()
+        .await;
+
+    let output = output.unwrap();
+
+    let stdout_string = String::from_utf8_lossy(&output.stdout);
+    let stderr_string = String::from_utf8_lossy(&output.stderr);
+
+    if stderr_string.len() > 0 {
+        println!("{}", stderr_string);
+    } else {
+        println!("Response: {}", stdout_string);
+    }
 }
