@@ -6,24 +6,28 @@ use crossterm::{
     ExecutableCommand,
 };
 
-use super::parser::Request;
+use super::parser::{Request, CurlRequest};
 
 use crate::screens::{
-    request_details_screen::request_details_screen, request_listing_screen::request_listing_screen, waiting_screen::waiting_screen,
+    request_details_screen::{request_details_screen, curl_request_details_screen}, request_listing_screen::{request_listing_screen, curl_request_listing_screen}, waiting_screen::waiting_screen,
 };
 
 #[derive(Clone)]
 pub struct ScreenParams {
     pub screen: Screens,
     pub requests: Option<Vec<Request>>,
+    pub curl_requests: Option<Vec<CurlRequest>>,
     pub selected_request: Option<Request>,
+    pub selected_curl_request: Option<CurlRequest>,
 }
 
 #[derive(Clone)]
 pub enum Screens {
     RequestListing,
+    CurlRequestListing,
     RequestDetails,
-    Waiting
+    Waiting,
+    CurlRequestDetails,
 }
 
 pub fn switch_screens(params: ScreenParams) {
@@ -35,8 +39,14 @@ pub fn switch_screens(params: ScreenParams) {
         Screens::RequestListing => {
             request_listing_screen(params);
         }
+        Screens::CurlRequestListing => {
+            curl_request_listing_screen(params);
+        }
         Screens::RequestDetails => {
             request_details_screen(params);
+        }
+        Screens::CurlRequestDetails => {
+            curl_request_details_screen(params);
         }
         Screens::Waiting => {
             waiting_screen(params);
