@@ -39,9 +39,9 @@ cargo install --path ./
 http-client -p <filepath>
 ```
 
-## 📋 File Format
+## 📋 Custom File Format
 
-The HTTP REST client project supports a custom file format for specifying requests. This structure allows for easy organization and customization of HTTP requests. Below is an example of the file format:
+The HTTP REST client project supports a custom file format for specifying requests by using *"-m custom"*. This structure allows for easy organization and customization of HTTP requests. Below is an example of the file format:
 
 ```plaintext
 ########
